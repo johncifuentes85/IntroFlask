@@ -10,12 +10,17 @@ def index():
     vehiculos = ['Mazda', 'Chevrolet', 'Renault', 'Audi']
     datosindex = {
         'titulo':'Sistema de prueba',
-        'subtitulo':'Bienvenido al sistema usuario:',
+        'subtitulo':'Bienvenido al sistema usuario: ',
         'vehiculos':vehiculos,
         'usuario':'usuarioprueba',
-        'referencias':['2','Aveo','Logan', '5 power']
+        'referencias':['2','Aveo','Logan', '5 power', 'Airton'],
+        'catvehiculos': len(vehiculos)
     }
     return render_template('index.html', datos = datosindex) # ruta que nos lleva al index se debe importar la funcion y podemos agregarle los datos del diccionario
+    
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 if __name__ == "__main__":
     app.run(debug=True, port=3200)#cambio el debug (para no tenerlo que detener para ver las modificaciones) y el puerto
