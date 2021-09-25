@@ -14,6 +14,7 @@ def index():
         'vehiculos':vehiculos,
         'usuario':'usuarioprueba',
         'referencias':['2','Aveo','Logan', '5 power', 'Airton'],
+        'modelo':['2020','2000','2021', '2015', '2018'],
         'catvehiculos': len(vehiculos)
     }
     return render_template('index.html', datos = datosindex) # ruta que nos lleva al index se debe importar la funcion y podemos agregarle los datos del diccionario

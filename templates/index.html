@@ -19,12 +19,20 @@
             {%endfor%}
         </select>
         <table class="table table-hover table-borderes">
+            <tr>
+            <th>Marca</th>
+            <th>Referencia</th>
+            <th>Modelo</th>
+            </tr>
             {% set count = namespace(a=0)%}
+            {% set count1 = namespace(a=0)%}
             {% for vehiculo in datos.vehiculos%}
             <tr>
             <td>{{vehiculo}}</td>
             <td>{{datos.referencias[count.a]}}</td>
             {% set count.a = count.a + 1%}
+            <td>{{datos.modelo[count1.a]}}</td>
+            {% set count1.a = count1.a + 1%}
             <td>{{ref}}</td>
             {%endfor%}
             </tr>
