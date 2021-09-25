@@ -19,9 +19,12 @@
             {%endfor%}
         </select>
         <table class="table table-hover table-borderes">
+            {% set count = namespace(a=0)%}
             {% for vehiculo in datos.vehiculos%}
             <tr>
             <td>{{vehiculo}}</td>
+            <td>{{datos.referencias[count.a]}}</td>
+            {% set count.a = count.a + 1%}
             <td>{{ref}}</td>
             {%endfor%}
             </tr>
