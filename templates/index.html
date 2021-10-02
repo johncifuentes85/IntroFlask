@@ -1,41 +1,41 @@
 {% extends 'maestra.html' %} //se llama el archivo maestro
-{% block titulo %}Mi primer pagina con Flask{% endblock %} //se envia el titulo a block titulo de maestra.html
+{% block titulo %}Agencia de viajes el mocho{% endblock %} //se envia el titulo a block titulo de maestra.html
 {% block contenido %} 
-        <h2>{{datos.subtitulo}}{{datos.usuario}}</h2> <!--intepolar el titulo --> 
-    <br>
-    {% if datos.catvehiculos > 0 %}
-        <ul>
-            {% for vehiculo in datos.vehiculos%}
-            <li>{{vehiculo}}</li>
-            {%endfor%}
-        </ul>
-        <div>Referencia del Renault: {{datos.referencias[2]}}</div>
-    {% else %}
-        <h3>No existen vehiculos para mostrar</h3>
-    {% endif %}
-        <select>
-            {% for vehiculo in datos.vehiculos%}
-            <option value="{{vehiculo}}">{{vehiculo}}</option>
-            {%endfor%}
-        </select>
-        <table class="table table-hover table-borderes">
-            <tr>
-            <th>Marca</th>
-            <th>Referencia</th>
-            <th>Modelo</th>
-            </tr>
-            {% set count = namespace(a=0)%}
-            {% set count1 = namespace(a=0)%}
-            {% for vehiculo in datos.vehiculos%}
-            <tr>
-            <td>{{vehiculo}}</td>
-            <td>{{datos.referencias[count.a]}}</td>
-            {% set count.a = count.a + 1%}
-            <td>{{datos.modelo[count1.a]}}</td>
-            {% set count1.a = count1.a + 1%}
-            <td>{{ref}}</td>
-            {%endfor%}
-            </tr>
-        </table>
+<main>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-5">
+  <div class="col">
+    <div class="card">
+      <img src="static/img/sanAndres.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">San Andres</h5>
+        <p class="card-text">Un auténtico paraíso con cerca de cuarenta sitios para bucear, las mejores playas del Caribe.</p>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="static/img/Mexico.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Mexico</h5>
+        <p class="card-text">Un sitio mágico donde encontrarás historia, rutas, gastronomía,
+entre muchas cosas más de México.</p>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="static/img/peru.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Peru</h5>
+        <p class="card-text">Maravíllate con la diversidad de nuestra riqueza natural, cultural e histórica.</p>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+</main>
 {% endblock %} //este es el contenido que llevara block contedido en la pagina maestra   
 

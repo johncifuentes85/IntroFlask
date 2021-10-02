@@ -10,21 +10,21 @@ app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'bdflask'
+app.config['MYSQL_DB'] = 'agencia'
 
 conexion = MySQL(app) # vinculo entre la aplicación y la bd
 
-@app.route('/cars')
-def listar_cars():
+@app.route('/destinos')
+def listar_destinos():
     data = {}
     try:
         cursor = conexion.connection.cursor()
-        sql = "SELECT id, marca, modelo, valor FROM car ORDER BY marca"
+        sql = "SELECT id, destino, costo FROM viajes ORDER BY destino"
         cursor.execute(sql)
-        cars = cursor.fetchall()
-        print(cars)
-        data['mensaje'] = 'Exito'
-        data['cars'] = cars
+        destinos = cursor.fetchall()
+        print(destinos)
+        #data['mensaje'] = 'Exito'
+        data['destinos'] = destinos
     except Exception as ex:    
             data['mensaje'] = 'Error ...'
     return jsonify(data) # recordar importar jsonify
@@ -33,22 +33,13 @@ def listar_cars():
 @app.route('/')#la @ es un decorador y ('/') la ruta de la raiz y se crea una funcion que nos lleve la pagina 
 #para poder que ejecute hay que parar el servidor con ctrl+c y vuelve y se ejecuta.
 def index():
-    #return "<h1> Hola, desde la pagina de inicio </h1>" #se puede pintar las etiquetas desde aca 
-    vehiculos = ['Mazda', 'Chevrolet', 'Renault', 'Audi']
-    datosindex = {
-        'titulo':'Sistema de prueba',
-        'subtitulo':'Bienvenido al sistema usuario: ',
-        'vehiculos':vehiculos,
-        'usuario':'usuarioprueba',
-        'referencias':['2','Aveo','Logan', '5 power', 'Airton'],
-        'modelo':['2020','2000','2021', '2015', '2018'],
-        'catvehiculos': len(vehiculos)
-    }
-    return render_template('index.html', datos = datosindex) # ruta que nos lleva al index se debe importar la funcion y podemos agregarle los datos del diccionario
-    
-@app.route('/login')
-def login():
-    return render_template('login.html')
+    return render_template('index.html') # ruta que nos lleva al index se debe importar la funcion y podemos agregarle los datos del diccionario
+
+
+@app.route('/armaPlan')
+def armaPlan():
+    destinos = ['San Andres', 'Mexico', 'peru']
+    return render_template('armaPlan.html', d = destinos)
 
 def not_found(error):
     #return render_template("not_found.html"),404#para que lleve a la pagina error 

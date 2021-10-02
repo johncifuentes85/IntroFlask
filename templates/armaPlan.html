@@ -1,0 +1,31 @@
+{% extends 'maestra.html' %} //se llama el archivo maestro
+{% block titulo %}Agencia de viajes el mocho{% endblock %} //se envia el titulo a block titulo de maestra.html
+{% block contenido %} 
+<main>
+<form>
+  <div class="mb-3 mt-5">
+    <h2>Arma tu plan</h2>
+    <br>
+    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Destino</label>
+        <select class="form-select">
+            {% for d in d%}
+            <option value="{{d}}">{{d}}</option>
+            {%endfor%}
+        </select>
+
+  </div>
+   <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Numero de personas</label>
+    <input type="num" class="form-control" id="exampleInputPassword1">
+  </div>
+  <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+<br>
+<br>
+</main>
+{% endblock %} //este es el contenido que llevara block contedido en la pagina maestra   
+

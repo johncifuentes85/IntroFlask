@@ -10,9 +10,96 @@
     <title>{% block titulo %}{% endblock %}</title>
   </head>
   <body>
-    <div class="container">
-        {% block contenido %}{% endblock %}
+    
+    <header>
+ 
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Agencia de viajes</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('armaPlan') }}">Arma tu plan</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="destinos">Destino</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/img/Mexico.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="static/img/sanAndres.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="static/img/peru.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+    </header>
+    <main>
+        <div class="container">
+          {% block contenido %}{% endblock %}
+        </div>
+    </main>
+    
+    <footer class="footer">
+    <br>
+        <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <h6 class="text-muted lead">CONTACTO:</h6>
+            <h6 class="text-muted">
+            Carrera 8h No. 166-71 Local 2<br>
+            Santa Cruz de la Ronda.<br>
+            Teléfonos: 3115988953 – 3112641818.<br>
+            </h6>
+        </div>
+        <div class="col-xs-12 col-md-6">
+        <div class="pull-right">
+        <h6 class="text-muted lead">ENCUENTRANOS EN LAS REDES</h6>
+              <div class="redes-footer">
+                  <a href="https://www.facebook.com/"><img src="static/img/facebook.png"></a>
+                  <a href="https://twitter.com/"><img src="static/img/gorjeo.png"></a>
+                  <a href="https://www.youtube.com/"><img src="static/img/youtube.png"></a>
+              </div>
+        </div>
+        <div class="row"> <p class="text-muted small text-right">José Miguel, arte y belleza @2016.<br> Todos los derechos reservados.</p></div>
+    </div>
+  </div>  
+</div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{url_for('static',filename='js/maestra.js')}}"></script>
 </body>
 </html>
